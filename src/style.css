@@ -1,0 +1,9 @@
+/**
+ * Tailwind
+ */
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+
+* {
+    font-family: Arial, Helvetica, sans-serif
+}
