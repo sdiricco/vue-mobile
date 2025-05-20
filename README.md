@@ -324,8 +324,82 @@ import {
 } from "@ionic/vue";
 import { ellipse, square, triangle } from "ionicons/icons";
 </script>
-
 ```
+
+# Tema
+
+La questione più complessa è mantenere consistente il tema attraverso i vari componenti. Abbiamo primevue4, tailwind e ionic da sincronizzare a livello di variabili e tema. Per quanto riguarda primevue4 e tailwind la consistenza è mantenuta dal plugin `tailwindcss-primeui` mentre per mantenere la consistenza tra primevue4 e ionic non esiste un metodo ufficiale. Il consiglio è di sincronizzare "a mano" le variabili di ionic utilizzando i colori principali di primevue4.
+
+```css
+:root {
+	--ion-color-primary: #10b981;
+	--ion-color-primary-rgb: 16,185,129;
+	--ion-color-primary-contrast: #000000;
+	--ion-color-primary-contrast-rgb: 0,0,0;
+	--ion-color-primary-shade: #0ea372;
+	--ion-color-primary-tint: #28c08e;
+
+	--ion-color-secondary: #10b981;
+	--ion-color-secondary-rgb: 16,185,129;
+	--ion-color-secondary-contrast: #000000;
+	--ion-color-secondary-contrast-rgb: 0,0,0;
+	--ion-color-secondary-shade: #0ea372;
+	--ion-color-secondary-tint: #28c08e;
+
+	--ion-color-tertiary: #10b981;
+	--ion-color-tertiary-rgb: 16,185,129;
+	--ion-color-tertiary-contrast: #000000;
+	--ion-color-tertiary-contrast-rgb: 0,0,0;
+	--ion-color-tertiary-shade: #0ea372;
+	--ion-color-tertiary-tint: #28c08e;
+
+	--ion-color-success: #2dd55b;
+	--ion-color-success-rgb: 45,213,91;
+	--ion-color-success-contrast: #000000;
+	--ion-color-success-contrast-rgb: 0,0,0;
+	--ion-color-success-shade: #28bb50;
+	--ion-color-success-tint: #42d96b;
+
+	--ion-color-warning: #ffc409;
+	--ion-color-warning-rgb: 255,196,9;
+	--ion-color-warning-contrast: #000000;
+	--ion-color-warning-contrast-rgb: 0,0,0;
+	--ion-color-warning-shade: #e0ac08;
+	--ion-color-warning-tint: #ffca22;
+
+	--ion-color-danger: #c5000f;
+	--ion-color-danger-rgb: 197,0,15;
+	--ion-color-danger-contrast: #ffffff;
+	--ion-color-danger-contrast-rgb: 255,255,255;
+	--ion-color-danger-shade: #ad000d;
+	--ion-color-danger-tint: #cb1a27;
+
+	--ion-color-light: #f6f8fc;
+	--ion-color-light-rgb: 246,248,252;
+	--ion-color-light-contrast: #000000;
+	--ion-color-light-contrast-rgb: 0,0,0;
+	--ion-color-light-shade: #d8dade;
+	--ion-color-light-tint: #f7f9fc;
+
+	--ion-color-medium: #5f5f5f;
+	--ion-color-medium-rgb: 95,95,95;
+	--ion-color-medium-contrast: #ffffff;
+	--ion-color-medium-contrast-rgb: 255,255,255;
+	--ion-color-medium-shade: #545454;
+	--ion-color-medium-tint: #6f6f6f;
+
+	--ion-color-dark: #2f2f2f;
+	--ion-color-dark-rgb: 47,47,47;
+	--ion-color-dark-contrast: #ffffff;
+	--ion-color-dark-contrast-rgb: 255,255,255;
+	--ion-color-dark-shade: #292929;
+	--ion-color-dark-tint: #444444;
+}
+```
+
+# Come sviluppare attraverso i componenti di Ionic, primevue e tailwind?
+
+Dal momento che ci sono due componenti che potenzialmente vanno in conflitto, Ionic e primevue4, il consiglio è quello di evitare di usare indifferentemente componenti di primevue e Ionic senza tenere conto delle incosistenze css. Consiglio di utilizzare Ionic per la costruzione del layout dell'applicazione e il routing e utilizzare i componente primevue per tutto il resto. Tailwind può essere utilizzato per utilities css come padding, margin, flex ecc..
 
 
 
